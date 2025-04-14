@@ -15,7 +15,7 @@ client.once(Events.ClientReady, () => {
 
 client.on(Events.MessageCreate, async (message) => {
     if (message.channelId === process.env.CHANNEL_SCREENSHOT_ID) {
-        if (message.attachments.size === 0 && message.embeds.length === 0 && !member.roles.cache.some(role => role.name === 'Modérateur')) {
+        if (message.attachments.size === 0 && message.embeds.length === 0 && !message.member.roles.cache.some(role => role.name === 'Modérateur')) {
             try {
                 await message.delete();                
                 console.log('Message texte supprimé dans le thread');
